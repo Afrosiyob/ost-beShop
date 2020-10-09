@@ -1,9 +1,11 @@
-import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
+import { MDBBtn, MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import React from "react";
 import "./CheckOutPage.scss";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 // import { MDBAnimation } from "mdbreact";
 import * as Yup from "yup";
+import { Link } from "react-router-dom";
 
 const initialValues = {
   firstName: "",
@@ -21,12 +23,12 @@ const initialValues = {
   createAnAccountTwo: false,
   orderNotes: "",
   productName: "adidas",
-  ProductPrice: "300$",
+  productPrice: "300$",
   productCount: 5,
   subtotal: 1500,
   shipping: 300,
   total: 1800,
-  payment: [],
+  payment: "",
   readAgree: false,
 };
 
@@ -45,16 +47,19 @@ const validationSchema = Yup.object().shape({
     .min(7, "Too short!")
     .max(20, "Too Long!")
     .required("Required !"),
-  createAnAccount: Yup.string().required("Required !"),
+  payment: Yup.string().required("Required!"),
+
   // payment: Yup.string().required("Required !"),
   // readAgree: Yup.string().required("Required !"),
 });
 
 function CheckOutPage() {
   return (
-    <div>
+    <div className="check-out-page">
       <MDBContainer>
-        <h1>Your selected products</h1>
+        <div className="my-5 w-100 pt-5">
+          <h1 className="w-100 text-center">Your selected products</h1>
+        </div>
         <Formik
           initialValues={initialValues}
           validationSchema={validationSchema}
@@ -67,14 +72,14 @@ function CheckOutPage() {
         >
           {({ errors, touched, values }) => (
             <Form>
+              <h3 className="text-uppercase font-weight-bold">
+                billing detail
+              </h3>
               <MDBRow>
                 <MDBCol md="8" sm="12">
-                  <h3 className="text-uppercase font-weight-bold">
-                    billing detail
-                  </h3>
                   <MDBRow>
                     <MDBCol md="6" sm="12">
-                      <div className="mt-3">
+                      <div>
                         <label htmlFor="firstName">
                           <small>
                             <b>First Name</b>
@@ -95,7 +100,7 @@ function CheckOutPage() {
                       </div>
                     </MDBCol>
                     <MDBCol md="6" sm="12">
-                      <div className="mt-3">
+                      <div>
                         <label htmlFor="lastName">
                           <small>
                             <b>Last Name</b>
@@ -361,7 +366,7 @@ function CheckOutPage() {
                     Shipping Details details
                   </h3>
 
-                  <MDBCol>
+                  <MDBCol md="12">
                     <div className="mt-3">
                       <Field
                         type="checkbox"
@@ -377,13 +382,174 @@ function CheckOutPage() {
                       </label>
                     </div>
                   </MDBCol>
+
+                  <div className="my-3">
+                    <label htmlFor="orderNotes">
+                      <small>
+                        <b>Order Notes (Optional)</b>
+                      </small>{" "}
+                    </label>
+                    <Field
+                      className="form-control"
+                      as="textarea"
+                      id="orderNotes"
+                      name="orderNotes"
+                      placeholder="orderNotes"
+                      rows="4"
+                    />
+                    <small style={{ color: "red" }}>
+                      <ErrorMessage name="orderNotes">
+                        {(msg) => <div>{msg}</div>}
+                      </ErrorMessage>
+                    </small>
+                  </div>
                 </MDBCol>
                 <MDBCol md="4" sm="12">
-                  right-item
+                  <div className="rounded border  p-4 mt-3">
+                    <div className="mb-3">
+                      <p className="p-0 m-0">Returning customer?</p>
+                      <Link>
+                        Click here to log in{" "}
+                        <svg
+                          width="21"
+                          height="21"
+                          viewBox="0 0 21 21"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.265 4.11863C12.0028 3.86893 11.5871 3.87877 11.3374 4.14127C11.0873 4.40377 11.0978 4.81918 11.36 5.06921L16.3941 9.84375H3.28125C2.919 9.84375 2.625 10.1378 2.625 10.5C2.625 10.8623 2.919 11.1563 3.28125 11.1563H16.3731L11.36 15.9311C11.0975 16.1812 11.0873 16.5966 11.3374 16.8591C11.4663 16.9943 11.6392 17.0625 11.8125 17.0625C11.9753 17.0625 12.138 17.0025 12.265 16.8814L17.9904 11.4279C18.2385 11.1802 18.375 10.8508 18.375 10.5C18.375 10.1492 18.2385 9.8198 17.979 9.56091L12.265 4.11863Z"
+                            fill="#3366FE"
+                          />
+                        </svg>
+                      </Link>
+                    </div>
+
+                    <div>
+                      <p className="p-0 m-0">Have a coupon?</p>
+                      <Link>
+                        Click here to enter your code{" "}
+                        <svg
+                          width="21"
+                          height="21"
+                          viewBox="0 0 21 21"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M12.265 4.11863C12.0028 3.86893 11.5871 3.87877 11.3374 4.14127C11.0873 4.40377 11.0978 4.81918 11.36 5.06921L16.3941 9.84375H3.28125C2.919 9.84375 2.625 10.1378 2.625 10.5C2.625 10.8623 2.919 11.1563 3.28125 11.1563H16.3731L11.36 15.9311C11.0975 16.1812 11.0873 16.5966 11.3374 16.8591C11.4663 16.9943 11.6392 17.0625 11.8125 17.0625C11.9753 17.0625 12.138 17.0025 12.265 16.8814L17.9904 11.4279C18.2385 11.1802 18.375 10.8508 18.375 10.5C18.375 10.1492 18.2385 9.8198 17.979 9.56091L12.265 4.11863Z"
+                            fill="#3366FE"
+                          />
+                        </svg>
+                      </Link>
+                    </div>
+                  </div>
+
+                  <div className="rounded border  p-4 mt-3">
+                    <h4 className="text-uppercase font-weight-bold">
+                      your order
+                    </h4>
+
+                    <div className="d-flex justify-content-between">
+                      <p>Product</p>
+                      <p>Total</p>
+                    </div>
+
+                    <div>
+                      {/* map buladigan joy */}
+                      <div className=" d-flex justify-content-between">
+                        <p>{initialValues.productName}</p>
+                        <p>${initialValues.productPrice}</p>
+                      </div>
+                      <div className=" d-flex justify-content-between">
+                        <p>{initialValues.productName}</p>
+                        <p>${initialValues.productPrice}</p>
+                      </div>
+                      <div className=" d-flex justify-content-between">
+                        <p>{initialValues.productName}</p>
+                        <p>${initialValues.productPrice}</p>
+                      </div>
+                    </div>
+                    <div className="mt-3 d-flex justify-content-between">
+                      <p className="text-uppercase font-weight-bold">
+                        subtotal
+                      </p>
+                      <p>$12354</p>
+                    </div>
+                    <div className=" d-flex justify-content-between">
+                      <p className="text-uppercase font-weight-bold">
+                        shipping
+                      </p>
+                      <div>
+                        <small>Flat Rate:</small>
+                        <p>$12300</p>
+                      </div>
+                    </div>
+                    <div className=" d-flex justify-content-between">
+                      <p className="text-uppercase font-weight-bold">total</p>
+                      <p>$12354</p>
+                    </div>
+
+                    <div className="mt-3 d-flex flex-column">
+                      <label>
+                        <Field
+                          type="radio"
+                          name="payment"
+                          value="One payment"
+                          className="mr-2"
+                        />
+                        <small>Direct Bank Transfer</small>
+                      </label>
+                      <label>
+                        <Field
+                          type="radio"
+                          name="payment"
+                          value="Two payment"
+                          className="mr-2"
+                        />
+                        <small>Check Payments</small>
+                      </label>
+                      <label>
+                        <Field
+                          type="radio"
+                          name="payment"
+                          value="Three payment"
+                          className="mr-2"
+                        />
+                        <small>Cash On Deliver</small>
+                      </label>
+                      <label>
+                        <Field
+                          type="radio"
+                          name="payment"
+                          value="Four payment"
+                          className="mr-2"
+                        />
+                        <small>
+                          PayPal <Link>Whats Is PayPal?</Link>
+                        </small>
+                      </label>
+
+                      <small style={{ color: "red" }}>
+                        <ErrorMessage name="payment">
+                          {(msg) => <div>{msg}</div>}
+                        </ErrorMessage>
+                      </small>
+                    </div>
+
+                    <div className="mt-3 w-100">
+                      <MDBBtn
+                        color="primary"
+                        className="rounded-pill w-100"
+                        rounded
+                        type="submit"
+                      >
+                        Primary
+                      </MDBBtn>
+                    </div>
+                  </div>
                 </MDBCol>
               </MDBRow>
-
-              <button type="submit">Submit</button>
             </Form>
           )}
         </Formik>
