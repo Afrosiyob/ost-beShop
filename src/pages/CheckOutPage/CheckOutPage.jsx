@@ -18,6 +18,7 @@ const initialValues = {
   email: "",
   phone: "",
   createAnAccount: false,
+  createAnAccountTwo: false,
   orderNotes: "",
   productName: "adidas",
   ProductPrice: "300$",
@@ -364,10 +365,10 @@ function CheckOutPage() {
                     <div className="mt-3">
                       <Field
                         type="checkbox"
-                        id="createAnAccount"
-                        name="createAnAccount"
+                        id="createAnAccountTwo"
+                        name="createAnAccountTwo"
                       />
-                      <label className="ml-3" htmlFor="createAnAccount">
+                      <label className="ml-3" htmlFor="createAnAccountTwo">
                         <div className="d-flex flex-column">
                           <p className="m-0 p-0">
                             <b>Create An Account</b>
