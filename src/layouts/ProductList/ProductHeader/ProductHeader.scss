@@ -1,0 +1,44 @@
+.product-list-header {
+    width: 100%;
+
+
+
+    div.wrap-img-box {
+        background-image: url('https://s3-alpha-sig.figma.com/img/b80a/68b2/4857443438e2bed0873bf21efd96881c?Expires=1602460800&Signature=IJl6sifyg5G7x6sHBL0piGGJSCvx4TuI-40FMEmKHW6PmIfDtebizKVYSOPmi8RXhLrxFSc97AmmzBVMbPUPdPgC8Z~hPnba0-d1O2NQhl18erobSBpyMeQAvR4qJZLLicEiXydF4yiPw~VkCyQjG30W4CmHnJ9mwxn2DWHY-SbloZlfkh66QAB-YSZ7tKBZei5JVLmUF~eyT0BCsA-t9NjWbyld77DEZUmvWiQfzdNUdZk2Xi6BBxVFPWR7i4Ck2W8k1svtfPqzRzIBgfaBoq6On~WcJS7bqKdysgb1LKGK1fljWu8LPA5-aJB3GirfP58gX4jOlSfxUCfcc88v2A__&Key-Pair-Id=APKAINTVSUGEWH5XD5UA');
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        // background-attachment: fixed;
+        height: 100%;
+        width: 100%;
+
+        .container {
+            h1 {
+                color: white;
+                font-weight: bold;
+                // width: 80%;
+                width: 30%;
+                padding: 60px 0;
+                font-size: 52px;
+
+                @media all and (max-width:768px) {
+                    font-size: 22px;
+                    width: 60%;
+                    padding: 30px 0;
+                }
+            }
+        }
+
+        @media all and (max-width:768px) {
+            border-radius: 10px;
+        }
+
+    }
+
+    @media all and (max-width:768px) {
+        padding: 10px;
+
+    }
+
+
+}
