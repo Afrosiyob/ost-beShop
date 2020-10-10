@@ -11,6 +11,7 @@ import FaqPage from "./pages/FaqPage/FaqPage";
 import CardPage from "./pages/CardPage/CardPage";
 import WishListPage from "./pages/WishListPage/WishListPage";
 import CheckOutPage from "./pages/CheckOutPage/CheckOutPage";
+import UserAccount from "./pages/UserAccount/UserAccount";
 
 class Routes extends React.Component {
   render() {
@@ -24,6 +25,8 @@ class Routes extends React.Component {
         <Route path="/cardpage" component={CardPage} />
         <Route path="/wishlistpage" component={WishListPage} />
         <Route path="/checkoutpage" component={CheckOutPage} />
+        <Route path="/useraccount" component={UserAccount} />
+
         {/* FREE */}
 
         <Route

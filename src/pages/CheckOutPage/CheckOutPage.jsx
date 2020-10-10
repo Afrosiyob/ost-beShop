@@ -58,7 +58,9 @@ function CheckOutPage() {
     <div className="check-out-page">
       <MDBContainer>
         <div className="my-5 w-100 pt-5">
-          <h1 className="w-100 text-center">Your selected products</h1>
+          <h1 className="w-100 text-center font-weight-bold">
+            Your selected products
+          </h1>
         </div>
         <Formik
           initialValues={initialValues}
@@ -176,7 +178,7 @@ function CheckOutPage() {
                           type="text"
                           id="streetAddress"
                           name="streetAddress"
-                          placeholder="streetAddress"
+                          placeholder="Street Address"
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="streetAddress">
@@ -189,7 +191,7 @@ function CheckOutPage() {
                       <div className="mt-3">
                         <label htmlFor="aptSuit">
                           <small>
-                            <b>citypostcodeZip</b>
+                            <b>Apt, Suite, Etc.</b>
                           </small>
                         </label>
                         <Field
@@ -197,7 +199,7 @@ function CheckOutPage() {
                           type="text"
                           id="aptSuit"
                           name="aptSuit"
-                          placeholder="aptSuit"
+                          placeholder="Apt, Suite, Etc..."
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="aptSuit">
@@ -226,7 +228,7 @@ function CheckOutPage() {
 
                         <label htmlFor="city">
                           <small>
-                            <b>citypostcodeZip</b>
+                            <b>City</b>
                           </small>
                         </label>
                         <Field
@@ -234,7 +236,7 @@ function CheckOutPage() {
                           type="text"
                           id="city"
                           name="city"
-                          placeholder="city"
+                          placeholder="City"
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="city">
@@ -248,7 +250,7 @@ function CheckOutPage() {
                         {" "}
                         <label htmlFor="postcodeZip">
                           <small>
-                            <b>postcodeZip</b>
+                            <b>Postcode/Zip</b>
                           </small>
                         </label>
                         <Field
@@ -256,7 +258,7 @@ function CheckOutPage() {
                           type="text"
                           id="postcodeZip"
                           name="postcodeZip"
-                          placeholder="postcodeZip"
+                          placeholder="Postcode/Zip"
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="postcodeZip">
@@ -272,7 +274,7 @@ function CheckOutPage() {
                         {" "}
                         <label htmlFor="state">
                           <small>
-                            <b>state</b>
+                            <b>State</b>
                           </small>
                         </label>
                         <Field
@@ -280,7 +282,7 @@ function CheckOutPage() {
                           type="texxt"
                           id="state"
                           name="state"
-                          placeholder="state"
+                          placeholder="State"
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="state">
@@ -296,7 +298,7 @@ function CheckOutPage() {
                         {" "}
                         <label htmlFor="email">
                           <small>
-                            <b>email</b>
+                            <b>Email Address</b>
                           </small>
                         </label>
                         <Field
@@ -304,7 +306,7 @@ function CheckOutPage() {
                           type="email"
                           id="email"
                           name="email"
-                          placeholder="email"
+                          placeholder="Email Address"
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="email">
@@ -318,7 +320,7 @@ function CheckOutPage() {
                         {" "}
                         <label htmlFor="phone">
                           <small>
-                            <b>phone</b>
+                            <b>Phone</b>
                           </small>
                         </label>
                         <Field
@@ -326,7 +328,7 @@ function CheckOutPage() {
                           type="phone"
                           id="phone"
                           name="phone"
-                          placeholder="phone"
+                          placeholder="Phone"
                         />
                         <small style={{ color: "red" }}>
                           <ErrorMessage name="phone">
@@ -347,7 +349,7 @@ function CheckOutPage() {
                       <label className="ml-3" htmlFor="createAnAccount">
                         <div className="d-flex flex-column">
                           <p className="m-0 p-0">
-                            <b>Create An Account</b>
+                            <b>Create An Account?</b>
                           </p>
                           <small>
                             * If you select this option, an account will be
@@ -376,7 +378,7 @@ function CheckOutPage() {
                       <label className="ml-3" htmlFor="createAnAccountTwo">
                         <div className="d-flex flex-column">
                           <p className="m-0 p-0">
-                            <b>Create An Account</b>
+                            <b>Create An Account ?</b>
                           </p>
                         </div>
                       </label>
@@ -398,7 +400,7 @@ function CheckOutPage() {
                       rows="4"
                     />
                     <small style={{ color: "red" }}>
-                      <ErrorMessage name="orderNotes">
+                      <ErrorMessage name="Notes about your order, e.g. special notes for delivery.">
                         {(msg) => <div>{msg}</div>}
                       </ErrorMessage>
                     </small>
@@ -407,8 +409,10 @@ function CheckOutPage() {
                 <MDBCol md="4" sm="12">
                   <div className="rounded border  p-4 mt-3">
                     <div className="mb-3">
-                      <p className="p-0 m-0">Returning customer?</p>
-                      <Link>
+                      <p className="p-0 m-0 h6 text-muted">
+                        Returning customer?
+                      </p>
+                      <Link className="font-weight-bold h5" to="/useraccount">
                         Click here to log in{" "}
                         <svg
                           width="21"
@@ -426,8 +430,8 @@ function CheckOutPage() {
                     </div>
 
                     <div>
-                      <p className="p-0 m-0">Have a coupon?</p>
-                      <Link>
+                      <p className="p-0 m-0 h6 text-muted">Have a coupon?</p>
+                      <Link className="font-weight-bold h5">
                         Click here to enter your code{" "}
                         <svg
                           width="21"
@@ -451,8 +455,8 @@ function CheckOutPage() {
                     </h4>
 
                     <div className="d-flex justify-content-between">
-                      <p>Product</p>
-                      <p>Total</p>
+                      <p className="font-weight-bold">Product</p>
+                      <p className="font-weight-bold">Total</p>
                     </div>
 
                     <div>
@@ -536,14 +540,16 @@ function CheckOutPage() {
                         </ErrorMessage>
                       </small>
                     </div>
-                    <div className="mt-3">
+                    <div className="mt-3 d-flex p-0">
                       <Field type="checkbox" id="readAgree" name="readAgree" />
-                      <label className="ml-3" htmlFor="readAgree">
-                        <div className="d-flex flex-column">
-                          <p className="m-0 p-0">
-                            <b>Create An Account</b>
-                          </p>
-                        </div>
+                      <label className="ml-3 p-0" htmlFor="readAgree">
+                        <small>
+                          <b>
+                            {" "}
+                            I Have Read And Agree To The Website Terms And
+                            Conditions *
+                          </b>
+                        </small>
                       </label>
                     </div>
 
