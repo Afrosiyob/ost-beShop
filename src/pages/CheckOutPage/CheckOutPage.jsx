@@ -536,6 +536,16 @@ function CheckOutPage() {
                         </ErrorMessage>
                       </small>
                     </div>
+                    <div className="mt-3">
+                      <Field type="checkbox" id="readAgree" name="readAgree" />
+                      <label className="ml-3" htmlFor="readAgree">
+                        <div className="d-flex flex-column">
+                          <p className="m-0 p-0">
+                            <b>Create An Account</b>
+                          </p>
+                        </div>
+                      </label>
+                    </div>
 
                     <div className="mt-3 w-100">
                       <MDBBtn
