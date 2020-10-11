@@ -140,7 +140,7 @@ function ProductDetailBottomSlider() {
                 <div className="my-img-box">
                   <img
                     src="https://ae01.alicdn.com/kf/HTB1akWIXtfvK1RjSspoq6zfNpXaG/Teamyo-E28-Smart-Watch-HD-Color-Screen-Fitness-Bracelet-Blood-Pressure-Heart-Rate-Monitor-Pedometer-Smartwatch.jpg"
-                    alt="this is photo"
+                    alt="this isolbhobgug"
                   ></img>
                   <div className="my-rating">
                     <div className="my-rating-1">

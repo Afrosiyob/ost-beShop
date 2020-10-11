@@ -35,7 +35,7 @@ function CountDown() {
     timerComponents.push(
       <span>
         {" "}
-        <div className="timer-item">
+        <div key={timeLeft[interval]} className="timer-item">
           <span className="timer-item-top">{timeLeft[interval]}</span>
           <p>{interval}</p>
         </div>

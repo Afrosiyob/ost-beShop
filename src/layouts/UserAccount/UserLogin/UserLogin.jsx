@@ -20,7 +20,7 @@ const validationScheme = Yup.object().shape({
     .required("Required"),
 });
 
-function UserLogin() {
+function UserLogin(props) {
   return (
     <div>
       <h3 className="text-muted font-weight-bolder">Login</h3>

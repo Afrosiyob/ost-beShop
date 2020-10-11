@@ -112,7 +112,10 @@ function CardPageLeft(props) {
               <div key={element.id} className="product-one-list">
                 <div>
                   <div>
-                    <img src="https://unimall.az/images/detailed/280/05db4b29-0b74-4e6b-acd4-fc504be73f83.jpg" />
+                    <img
+                      src="https://unimall.az/images/detailed/280/05db4b29-0b74-4e6b-acd4-fc504be73f83.jpg"
+                      alt="wfwefcwef"
+                    />
                   </div>
                   <h4>{element.name}</h4>
                   <p>
