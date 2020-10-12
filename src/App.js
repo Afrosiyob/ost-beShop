@@ -7,10 +7,11 @@ import Routes from "./Routes";
 
 import "./App.scss";
 
-function App() {
+function App(props) {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
   return (
     <div style={{ overflow: "hidden" }}>
       <Router>
