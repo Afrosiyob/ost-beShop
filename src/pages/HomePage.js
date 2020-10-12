@@ -12,7 +12,6 @@ import "./HomePage.scss";
 
 function HomePage() {
   const { t } = useTranslation();
-  window.scrollTo(0, 0);
 
   return (
     <div className="home-page" style={{ backgroundColor: "rgba(0,0,0,0.04)" }}>

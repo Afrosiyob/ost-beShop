@@ -12,6 +12,7 @@ import CardPage from "./pages/CardPage/CardPage";
 import WishListPage from "./pages/WishListPage/WishListPage";
 import CheckOutPage from "./pages/CheckOutPage/CheckOutPage";
 import UserAccount from "./pages/UserAccount/UserAccount";
+import MyAccount from "./pages/MyAccount/MyAccount";
 
 class Routes extends React.Component {
   render() {
@@ -26,6 +27,7 @@ class Routes extends React.Component {
         <Route path="/wishlistpage" component={WishListPage} />
         <Route path="/checkoutpage" component={CheckOutPage} />
         <Route path="/useraccount" component={UserAccount} />
+        <Route path="/myaccount" component={MyAccount} />
 
         {/* FREE */}
 
