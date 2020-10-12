@@ -13,6 +13,7 @@ import WishListPage from "./pages/WishListPage/WishListPage";
 import CheckOutPage from "./pages/CheckOutPage/CheckOutPage";
 import UserAccount from "./pages/UserAccount/UserAccount";
 import MyAccount from "./pages/MyAccount/MyAccount";
+import PageNotFound from "./pages/PageNotFound/PageNotFound";
 
 class Routes extends React.Component {
   render() {
@@ -33,7 +34,7 @@ class Routes extends React.Component {
 
         <Route
           render={function () {
-            return <h1>Not Found</h1>;
+            return <PageNotFound />;
           }}
         />
       </Switch>
