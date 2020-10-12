@@ -1,10 +1,30 @@
 .not-found-page {
     width: 100%;
-    height: 50vh;
-    background-color: rgb(33, 33, 33);
-    color: white;
+    height: 60vh;
+    // background-color: rgb(33, 33, 33);
+    // color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     align-content: center;
+    background-color: red;
+
+    .images-wrap-box {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+
+
+
+        .img-number {
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+
+            position: absolute;
+
+            transition: all 1s linear;
+        }
+    }
 }
