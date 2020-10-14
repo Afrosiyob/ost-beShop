@@ -14,14 +14,13 @@ const validationSchema = Yup.object().shape({
   firstName: Yup.string().required("Required!"),
   lastName: Yup.string().required("Required!"),
   email: Yup.string().email("Email is not valid !").required("Required!"),
-  image: Yup.mixed().required("Required!"),
 });
 
 function AccountDetails() {
   const [fileName, setfileName] = useState("");
 
   return (
-    <div className="border rounded overflow-hidden px-md-5 py-md-4 p-sm-3">
+    <div className="border rounded overflow-hidden px-md-5 py-md-4 p-3">
       <h5 className="font-weight-bold">My Address</h5>
       <div className="mt-3">
         <h6 className="text-muted text-uppercase">billing address</h6>
@@ -93,7 +92,7 @@ function AccountDetails() {
                   </label>
                   <Field
                     className="form-control rounded-pill"
-                    type="text"
+                    type="email"
                     id="email"
                     name="email"
                     placeholder="Tyumen"

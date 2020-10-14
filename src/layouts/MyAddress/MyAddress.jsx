@@ -35,7 +35,7 @@ const validationSchema = Yup.object().shape({
 
 function MyAddress() {
   return (
-    <div className="my-address-box border rounded overflow-hidden px-md-5 py-md-4 p-sm-3">
+    <div className="my-address-box border rounded overflow-hidden px-md-5 py-md-4 p-3">
       <h5 className="font-weight-bold">My Address</h5>
 
       <Formik

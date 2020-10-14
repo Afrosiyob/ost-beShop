@@ -1,7 +1,10 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import React, { useState } from "react";
 import AccountDetails from "../../layouts/AccountDetails/AccountDetails";
+import Dashboard from "../../layouts/Dashboard/Dashboard";
 import MyAddress from "../../layouts/MyAddress/MyAddress";
+import Orders from "../../layouts/Orders/Orders";
+
 import "./MyAccount.scss";
 
 function MyAccount() {
@@ -158,9 +161,17 @@ function MyAccount() {
               {(() => {
                 switch (state) {
                   case 1:
-                    return <div>tab 1</div>;
+                    return (
+                      <div>
+                        <Dashboard />
+                      </div>
+                    );
                   case 2:
-                    return <div>tab 2</div>;
+                    return (
+                      <div>
+                        <Orders />
+                      </div>
+                    );
                   case 3:
                     return (
                       <div>
