@@ -7,7 +7,6 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
-  image: "",
 };
 
 const validationSchema = Yup.object().shape({
@@ -18,12 +17,6 @@ const validationSchema = Yup.object().shape({
 
 function AccountDetails() {
   const [fileName, setfileName] = useState("");
-
-  const onChangeFile = (e) => {
-    // setfileName(e.target.file[0].name);
-    initialValues.image = e.target.value;
-    console.log(initialValues.image);
-  };
 
   return (
     <div className="border rounded overflow-hidden px-md-5 py-md-4 p-3">
@@ -111,7 +104,7 @@ function AccountDetails() {
                 </div>
               </MDBCol>
             </MDBRow>
-            <MDBRow>
+            {/* <MDBRow>
               <MDBCol md="6" sm="12">
                 <div className="mt-3">
                   <label htmlFor="image">
@@ -157,16 +150,7 @@ function AccountDetails() {
                     name="image"
                     type="file"
                     onChange={(e) => {
-                      onChangeFile(e);
-                    }}
-                  />
-
-                  <input
-                    id="image"
-                    name="image"
-                    type="file"
-                    onChange={(event) => {
-                      setfileName("file", event.currentTarget.files[0]);
+                      setfileName(e.target.files[0].name);
                     }}
                   />
 
@@ -177,7 +161,7 @@ function AccountDetails() {
                   </small>
                 </div>
               </MDBCol>
-            </MDBRow>
+            </MDBRow> */}
             <div className="mt-3 ">
               <MDBBtn
                 color="primary"
