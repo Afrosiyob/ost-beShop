@@ -11,18 +11,6 @@ import { MDBAnimation } from "mdbreact";
 function PageNotFound() {
   useEffect(() => {
     $(".not-found-page").mousemove(function (e) {
-      console.log("====================================");
-      console.log("x = " + e.offsetX + " :::: y = " + e.offsetY);
-      console.log("====================================");
-      console.log("====================================");
-      console.log(
-        "widht = " +
-          e.target.offsetWidth +
-          " :::: heigth = " +
-          e.target.offsetHeight
-      );
-      console.log("====================================");
-
       $(".img-number").css({
         left:
           e.offsetX > e.target.offsetWidth / 2

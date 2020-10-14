@@ -1,5 +1,7 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import React, { useState } from "react";
+import AccountDetails from "../../layouts/AccountDetails/AccountDetails";
+import MyAddress from "../../layouts/MyAddress/MyAddress";
 import "./MyAccount.scss";
 
 function MyAccount() {
@@ -14,7 +16,7 @@ function MyAccount() {
 
         <MDBRow>
           <MDBCol sm="12" md="3">
-            <div className="border rounded overflow-hidden ">
+            <div className="border rounded overflow-hidden mt-3 ">
               <div
                 className={
                   `font-weight-bolder px-4 py-2 left-tab-box ` +
@@ -152,7 +154,7 @@ function MyAccount() {
             </div>
           </MDBCol>
           <MDBCol sm="12" md="9">
-            <div>
+            <div className="mt-3">
               {(() => {
                 switch (state) {
                   case 1:
@@ -160,9 +162,18 @@ function MyAccount() {
                   case 2:
                     return <div>tab 2</div>;
                   case 3:
-                    return <div>tab 3</div>;
+                    return (
+                      <div>
+                        {" "}
+                        <MyAddress />{" "}
+                      </div>
+                    );
                   case 4:
-                    return <div>tab 4</div>;
+                    return (
+                      <div>
+                        <AccountDetails />
+                      </div>
+                    );
                   default:
                     return <div>default</div>;
                 }
