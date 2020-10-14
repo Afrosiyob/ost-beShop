@@ -19,6 +19,12 @@ const validationSchema = Yup.object().shape({
 function AccountDetails() {
   const [fileName, setfileName] = useState("");
 
+  const onChangeFile = (e) => {
+    // setfileName(e.target.file[0].name);
+    initialValues.image = e.target.value;
+    console.log(initialValues.image);
+  };
+
   return (
     <div className="border rounded overflow-hidden px-md-5 py-md-4 p-3">
       <h5 className="font-weight-bold">My Address</h5>
@@ -151,7 +157,16 @@ function AccountDetails() {
                     name="image"
                     type="file"
                     onChange={(e) => {
-                      setfileName(e.target.files[0].name);
+                      onChangeFile(e);
+                    }}
+                  />
+
+                  <input
+                    id="image"
+                    name="image"
+                    type="file"
+                    onChange={(event) => {
+                      setfileName("file", event.currentTarget.files[0]);
                     }}
                   />
 
