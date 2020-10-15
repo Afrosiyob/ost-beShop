@@ -97,7 +97,7 @@ function WishListPage() {
 
           <div className="d-flex justify-content-center">
             <MDBCol md="10" sm="12" className="p-0">
-              <div className="cart-page-one">
+              <div className="cart-page-one-wish">
                 <link
                   rel="stylesheet"
                   href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"

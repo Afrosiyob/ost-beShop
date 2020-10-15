@@ -32,21 +32,21 @@ function AccountDetails() {
         validationSchema={validationSchema}
         initialValues={initialValues}
         onSubmit={(values, actions) => {
-          // let data = new FormData();
-          // data.append("file", values.file);
-          // return fetch("https://", {
-          //   method: "post",
-          //   headers: new Headers({ Accept: "application/json" }),
-          //   body: data,
-          // })
-          //   .then((res) => res.json())
-          //   .then((data) => console.log(data))
-          //   .catch((err) => console.log(err));
-
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             console.log(values);
             actions.setSubmitting(false);
+
+            let data = new FormData();
+            data.append("file", values.file);
+            return fetch("https://", {
+              method: "post",
+              headers: new Headers({ Accept: "application/json" }),
+              body: data,
+            })
+              .then((res) => res.json())
+              .then((data) => console.log(data))
+              .catch((err) => console.log(err));
           }, 1000);
         }}
       >

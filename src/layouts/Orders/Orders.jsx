@@ -91,7 +91,7 @@ function Orders() {
   };
   return (
     <div>
-      <div className="cart-page-one">
+      <div className="cart-page-one-1">
         <link
           rel="stylesheet"
           href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
