@@ -1,5 +1,6 @@
 import { MDBAnimation, MDBContainer } from "mdbreact";
 import React from "react";
+import { Link } from "react-router-dom";
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
 import "./ProductTab.scss";
 
@@ -20,21 +21,15 @@ function ProductTab() {
                   <div className="content">
                     <div className="prodlist-tabs">
                       <div className="prodlist">
-                        <div className="box box1">
-                          <div className="border"></div>
-                          <div className="container">
-                            <h5>147 000 UZS</h5>
-                            <p>GoGo Girl Short Jacket</p>
+                        <Link to="/productdetail/1">
+                          <div className="box box1">
+                            <div className="border"></div>
+                            <div className="container">
+                              <h5>147 000 UZS</h5>
+                              <p>GoGo Girl Short Jacket</p>
+                            </div>
                           </div>
-                        </div>
-
-                        <div className="box box2">
-                          <div className="border"></div>
-                          <div className="container">
-                            <h5>147 000 UZS</h5>
-                            <p>GoGo Girl Short Jacket</p>
-                          </div>
-                        </div>
+                        </Link>
 
                         <div className="box box3">
                           <div className="border"></div>

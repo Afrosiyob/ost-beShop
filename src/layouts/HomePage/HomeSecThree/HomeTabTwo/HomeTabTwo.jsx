@@ -1,6 +1,8 @@
 import React from "react";
 import "./HomeTabTwo.scss";
+
 import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Link } from "react-router-dom";
 function HomeTabTwo() {
   return (
     <div className="home-tab-two">
@@ -15,13 +17,15 @@ function HomeTabTwo() {
             <div className="content">
               <div className="prodlist-tabs">
                 <div className="prodlist">
-                  <div className="box box1">
-                    <div className="border"></div>
-                    <div className="container">
-                      <h5>147 000 UZS</h5>
-                      <p>GoGo Girl Short Jacket</p>
+                  <Link to="/productdetail/1">
+                    <div className="box box1">
+                      <div className="border"></div>
+                      <div className="container">
+                        <h5>147 000 UZS</h5>
+                        <p>GoGo Girl Short Jacket</p>
+                      </div>
                     </div>
-                  </div>
+                  </Link>
 
                   <div className="box box2">
                     <div className="border"></div>
