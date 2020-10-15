@@ -31,18 +31,34 @@ function AccountDetails() {
       <Formik
         validationSchema={validationSchema}
         initialValues={initialValues}
+        // onSubmit={async (values, { setSubmitting }) => {
+        //   const res = await fetch(`http://localhost:3000/`, {
+        //     method: "POST",
+
+        //     headers: {
+        //       "Content-Type": "application/json",
+        //       "Access-Control-Allow-Origin": "*",
+        //     },
+        //   }).then((response) => response.json());
+        //   console.log(res);
+        //   setSubmitting(false);
+        //   props.myCallbackFunction(res);
+        // }}
+
         onSubmit={(values, actions) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
-            console.log(values);
-            actions.setSubmitting(false);
+
+            console.log("salom");
+
+            actions.setSubmitting(true);
 
             let data = new FormData();
             data.append("file", values.file);
-            return fetch("https://", {
+            return fetch("http://localhost:3000/", {
               method: "post",
               headers: new Headers({ Accept: "application/json" }),
-              body: data,
+              body: JSON.stringify({ name: "salom" }),
             })
               .then((res) => res.json())
               .then((data) => console.log(data))

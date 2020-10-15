@@ -17,15 +17,15 @@ function HomeTabOne() {
             <div className="content">
               <div className="prodlist-tabs">
                 <div className="prodlist">
-                  <Link to="/productdetail/1">
-                    <div className="box">
+                  <div className="box">
+                    <Link to="/productdetail/1">
                       <div className="border"></div>
                       <div className="container">
                         <h5>147 000 UZS</h5>
                         <p>GoGo Girl Short Jacket</p>
                       </div>
-                    </div>
-                  </Link>
+                    </Link>
+                  </div>
 
                   <div className="box">
                     <div className="border"></div>

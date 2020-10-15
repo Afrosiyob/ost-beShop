@@ -1,5 +1,6 @@
 import { MDBContainer } from "mdbreact";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import SearchBox from "./SearchBox/SearchBox";
 
@@ -11,7 +12,9 @@ function TopNavTwo() {
       <MDBContainer>
         <div className="top-nav-two">
           <div className="left-nav">
-            beshop<span>.</span>{" "}
+            <Link to="/">
+              beshop<span>.</span>{" "}
+            </Link>
           </div>
           <div className="mid-nav">
             <SearchBox />
