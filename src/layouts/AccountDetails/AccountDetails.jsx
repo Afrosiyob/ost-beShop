@@ -2,6 +2,7 @@ import { ErrorMessage, Field, Form, Formik } from "formik";
 import { MDBBtn, MDBCol, MDBRow } from "mdbreact";
 import React, { useState } from "react";
 import * as Yup from "yup";
+import axios from "axios";
 
 const initialValues = {
   firstName: "",
@@ -48,21 +49,28 @@ function AccountDetails() {
         onSubmit={(values, actions) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
+            axios
+              .post("http://localhost:8000/", {
+                method: "post",
+                headers: new Headers({ Accept: "application/json" }),
+                body: JSON.stringify(values),
+              })
+              .then((resp) => console.log(resp))
+              .catch((err) => console.log(err.error));
+            // console.log("salom");
 
-            console.log("salom");
+            // actions.setSubmitting(true);
 
-            actions.setSubmitting(true);
-
-            let data = new FormData();
-            data.append("file", values.file);
-            return fetch("http://localhost:3000/", {
-              method: "post",
-              headers: new Headers({ Accept: "application/json" }),
-              body: JSON.stringify({ name: "salom" }),
-            })
-              .then((res) => res.json())
-              .then((data) => console.log(data))
-              .catch((err) => console.log(err));
+            // let data = new FormData();
+            // data.append("file", values.file);
+            // return fetch("http://localhost:3000/", {
+            //   method: "post",
+            //   headers: new Headers({ Accept: "application/json" }),
+            //   body: JSON.stringify({ name: "salom" }),
+            // })
+            //   .then((res) => res.json())
+            //   .then((data) => console.log(data))
+            //   .catch((err) => console.log(err));
           }, 1000);
         }}
       >
