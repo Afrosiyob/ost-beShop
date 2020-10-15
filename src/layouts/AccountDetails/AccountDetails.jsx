@@ -7,6 +7,7 @@ const initialValues = {
   firstName: "",
   lastName: "",
   email: "",
+  file: "",
 };
 
 const validationSchema = Yup.object().shape({
@@ -17,7 +18,9 @@ const validationSchema = Yup.object().shape({
 
 function AccountDetails() {
   const [fileName, setfileName] = useState("");
-
+  const fileHandleChange = (e) => {
+    setfileName(e.target.files[0].name);
+  };
   return (
     <div className="border rounded overflow-hidden px-md-5 py-md-4 p-3">
       <h5 className="font-weight-bold">My Address</h5>
@@ -29,13 +32,25 @@ function AccountDetails() {
         validationSchema={validationSchema}
         initialValues={initialValues}
         onSubmit={(values, actions) => {
+          // let data = new FormData();
+          // data.append("file", values.file);
+          // return fetch("https://", {
+          //   method: "post",
+          //   headers: new Headers({ Accept: "application/json" }),
+          //   body: data,
+          // })
+          //   .then((res) => res.json())
+          //   .then((data) => console.log(data))
+          //   .catch((err) => console.log(err));
+
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
+            console.log(values);
             actions.setSubmitting(false);
           }, 1000);
         }}
       >
-        {({ errors, touched, values }) => (
+        {(formProps) => (
           <Form>
             <MDBRow>
               <MDBCol sm="12" md="3">
@@ -104,17 +119,17 @@ function AccountDetails() {
                 </div>
               </MDBCol>
             </MDBRow>
-            {/* <MDBRow>
+            <MDBRow>
               <MDBCol md="6" sm="12">
                 <div className="mt-3">
-                  <label htmlFor="image">
+                  <label htmlFor="file">
                     <small>
                       <b>E-mail address</b>
                     </small>
                   </label>
 
                   <label
-                    htmlFor="image"
+                    htmlFor="file"
                     className="w-100  overflow-hidden rounded-pill border d-flex justify-content-end"
                   >
                     <div className="w-75 px-2 py-1"> {fileName} </div>
@@ -146,22 +161,22 @@ function AccountDetails() {
                   </label>
 
                   <input
-                    id="image"
-                    name="image"
+                    id="file"
+                    name="file"
                     type="file"
                     onChange={(e) => {
-                      setfileName(e.target.files[0].name);
+                      formProps.setFieldValue("file", e.target.files[0]);
                     }}
                   />
 
                   <small style={{ color: "red" }}>
-                    <ErrorMessage name="image">
+                    <ErrorMessage name="file">
                       {(msg) => <div>{msg}</div>}
                     </ErrorMessage>
                   </small>
                 </div>
               </MDBCol>
-            </MDBRow> */}
+            </MDBRow>
             <div className="mt-3 ">
               <MDBBtn
                 color="primary"
