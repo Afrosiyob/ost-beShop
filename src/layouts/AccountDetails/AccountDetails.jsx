@@ -49,24 +49,38 @@ function AccountDetails() {
         onSubmit={(values, actions) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
+            const { firstName, lastName, email } = values;
+
             axios
-              .post("http://localhost:8000/", {
-                method: "post",
-                headers: new Headers({ Accept: "application/json" }),
-                body: JSON.stringify(values),
-              })
-              .then((resp) => console.log(resp))
-              .catch((err) => console.log(err.error));
-            // console.log("salom");
+              .post(
+                `http://localhost:8000/`,
+                JSON.stringify({ firstName, lastName, email })
+              )
+              .then((res) => {
+                console.log(res);
+                console.log(res.data);
+              });
+            console.log(JSON.stringify(values));
+
+            // fetch(`http://localhost:8000/`, {
+            //   method: "POST",
+            //   headers: {
+            //     "Content-Type": "application/json",
+            //     // 'Content-Type': 'application/x-www-form-urlencoded',
+            //   },
+            //   body: JSON.stringify(values),
+            // })
+            //   .then((e) => console.log(e))
+            //   .catch((e) => console.log(e));
 
             // actions.setSubmitting(true);
 
             // let data = new FormData();
             // data.append("file", values.file);
-            // return fetch("http://localhost:3000/", {
-            //   method: "post",
+            // return fetch("http://localhost:8000/", {
+            //   method: "POST",
             //   headers: new Headers({ Accept: "application/json" }),
-            //   body: JSON.stringify({ name: "salom" }),
+            //   body: JSON.stringify(data),
             // })
             //   .then((res) => res.json())
             //   .then((data) => console.log(data))
@@ -165,7 +179,7 @@ function AccountDetails() {
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
                       >
-                        <g clip-path="url(#clip0)">
+                        <g clipPath="url(#clip0)">
                           <path
                             d="M21.6627 9.55722C20.461 4.77019 15.6063 1.86369 10.8193 3.06535C7.07834 4.00445 4.36199 7.23769 4.08212 11.0845C1.42589 11.5225 -0.372331 14.0309 0.0657104 16.6871C0.455109 19.0486 2.50127 20.7779 4.89453 20.7684H8.95658V19.1436H4.89453C3.09981 19.1436 1.64489 17.6887 1.64489 15.894C1.64489 14.0993 3.09981 12.6443 4.89453 12.6443C5.34323 12.6443 5.70694 12.2806 5.70694 11.8319C5.70288 7.79378 8.97319 4.51692 13.0113 4.51291C16.5069 4.50941 19.516 6.98066 20.1922 10.4102C20.259 10.7526 20.5369 11.0142 20.8828 11.0601C23.1038 11.3764 24.6478 13.4333 24.3316 15.6543C24.0476 17.6486 22.3448 19.1336 20.3303 19.1436H17.0807V20.7684H20.3303C23.4711 20.759 26.0095 18.2051 26 15.0644C25.992 12.4499 24.2025 10.1777 21.6627 9.55722Z"
                             fill="white"
