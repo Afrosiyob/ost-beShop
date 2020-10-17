@@ -107,9 +107,6 @@ function AccountDetails() {
             id="fileName"
             ref={register}
             className="form-control"
-            onChange={(event) => {
-              setFieldValue("file", event.currentTarget.files[0]);
-            }}
           />
         </div>
         <button type="submit"> submit </button>
