@@ -35,7 +35,7 @@ function AccountDetails() {
     console.log(data);
 
     await axios
-      .post("http://localhost:8000/", data)
+      .post("http://localhost:3000/profile", data)
       .then((res) => console.log(res))
       .catch((err) => console.log(err));
   };
@@ -107,6 +107,9 @@ function AccountDetails() {
             id="fileName"
             ref={register}
             className="form-control"
+            onChange={(event) => {
+              setFieldValue("file", event.currentTarget.files[0]);
+            }}
           />
         </div>
         <button type="submit"> submit </button>
