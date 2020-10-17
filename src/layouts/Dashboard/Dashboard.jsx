@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Draggable from "react-draggable";
+
 import "./Dashboard.scss";
 
 function Dashboard() {
@@ -49,11 +49,11 @@ function Dashboard() {
                 <div className="submit-cl">
                   <div>
                     <div
-                      className={`bef ${defBef == 1 ? "bef-block" : ""}`}
+                      className={`bef ${defBef === 1 ? "bef-block" : ""}`}
                       onClick={() => hundleClick(1)}
                     ></div>
                     <div
-                      className={`def ${defBef == 1 ? "def-block" : ""}`}
+                      className={`def ${defBef === 1 ? "def-block" : ""}`}
                     ></div>
                   </div>
                   <div>
@@ -64,11 +64,11 @@ function Dashboard() {
                 <div className="submit-cl">
                   <div>
                     <div
-                      className={`bef ${defBef == 2 ? "bef-block" : ""}`}
+                      className={`bef ${defBef === 2 ? "bef-block" : ""}`}
                       onClick={() => hundleClick(2)}
                     ></div>
                     <div
-                      className={`def ${defBef == 2 ? "def-block" : ""}`}
+                      className={`def ${defBef === 2 ? "def-block" : ""}`}
                     ></div>
                   </div>
                   <div>
@@ -79,11 +79,11 @@ function Dashboard() {
                 <div className="submit-cl">
                   <div>
                     <div
-                      className={`bef ${defBef == 3 ? "bef-block" : ""}`}
+                      className={`bef ${defBef === 3 ? "bef-block" : ""}`}
                       onClick={() => hundleClick(3)}
                     ></div>
                     <div
-                      className={`def ${defBef == 3 ? "def-block" : ""}`}
+                      className={`def ${defBef === 3 ? "def-block" : ""}`}
                     ></div>
                   </div>
                   <div>
@@ -94,11 +94,11 @@ function Dashboard() {
                 <div className="submit-cl">
                   <div>
                     <div
-                      className={`bef ${defBef == 4 ? "bef-block" : ""}`}
+                      className={`bef ${defBef === 4 ? "bef-block" : ""}`}
                       onClick={() => hundleClick(4)}
                     ></div>
                     <div
-                      className={`def ${defBef == 4 ? "def-block" : ""}`}
+                      className={`def ${defBef === 4 ? "def-block" : ""}`}
                     ></div>
                   </div>
                   <div>

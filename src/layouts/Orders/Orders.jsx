@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Orders.scss";
 import ReactStars from "react-rating-stars-component";
 
@@ -62,33 +62,32 @@ const arry = [
 ];
 
 function Orders() {
-  const price = 110;
-  const [productCount, setProductCount] = useState(false);
+  // const [productCount, setProductCount] = useState(false);
 
   const ratingChanged = (newRating) => {
     console.log(newRating);
   };
 
-  const hundleClick = (id, item) => {
-    if (item == 1) {
-      arry.forEach((element) => {
-        if (element.id == id) element.count = element.count + 1;
-      });
-      setProductCount(!productCount);
-      console.log(arry);
-      return;
-    }
-    if (item == 0) {
-      arry.forEach((element) => {
-        if (element.id == id && element.count != 0)
-          element.count = element.count - 1;
-      });
-      setProductCount(!productCount);
-      return;
-    }
+  // const hundleClick = (id, item) => {
+  //   if (item === 1) {
+  //     arry.forEach((element) => {
+  //       if (element.id === id) element.count = element.count + 1;
+  //     });
+  //     setProductCount(!productCount);
+  //     console.log(arry);
+  //     return;
+  //   }
+  //   if (item === 0) {
+  //     arry.forEach((element) => {
+  //       if (element.id === id && element.count !== 0)
+  //         element.count = element.count - 1;
+  //     });
+  //     setProductCount(!productCount);
+  //     return;
+  //   }
 
-    return;
-  };
+  //   return;
+  // };
   return (
     <div>
       <div className="cart-page-one-1">
@@ -110,7 +109,10 @@ function Orders() {
                 <div key={element.id} className="product-one-list">
                   <div>
                     <div>
-                      <img src="https://unimall.az/images/detailed/280/05db4b29-0b74-4e6b-acd4-fc504be73f83.jpg" />
+                      <img
+                        src="https://unimall.az/images/detailed/280/05db4b29-0b74-4e6b-acd4-fc504be73f83.jpg"
+                        alt="fwefwef"
+                      />
                     </div>
                     <h4>
                       {element.name}

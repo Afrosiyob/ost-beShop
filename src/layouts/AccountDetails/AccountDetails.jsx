@@ -1,27 +1,47 @@
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { MDBBtn, MDBCol, MDBRow } from "mdbreact";
-import React, { useState } from "react";
+import React from "react";
 import * as Yup from "yup";
 import axios from "axios";
 
-const initialValues = {
-  firstName: "",
-  lastName: "",
-  email: "",
-  file: "",
-};
+import { useForm } from "react-hook-form";
 
-const validationSchema = Yup.object().shape({
-  firstName: Yup.string().required("Required!"),
-  lastName: Yup.string().required("Required!"),
-  email: Yup.string().email("Email is not valid !").required("Required!"),
-});
+// const initialValues = {
+//   firstName: "",
+//   lastName: "",
+//   email: "",
+//   file: "",
+// };
+
+// const validationSchema = Yup.object().shape({
+//   firstName: Yup.string().required("Required!"),
+//   lastName: Yup.string().required("Required!"),
+//   email: Yup.string().email("Email is not valid !").required("Required!"),
+// });
+
+// const Error = ({ touched, message }) => {
+//   if (!touched) {
+//     return <div className="form-message invalid"> &nbsp; </div>;
+//   }
+//   if (message) {
+//     return <div className="form-message invalid"> {message} </div>;
+//   }
+//   return <div className="form-message valid"> all good </div>;
+// };
 
 function AccountDetails() {
-  const [fileName, setfileName] = useState("");
-  const fileHandleChange = (e) => {
-    setfileName(e.target.files[0].name);
+  const { register, handleSubmit, watch, errors } = useForm();
+  const onSubmit = async (data) => {
+    console.log(data);
+
+    await axios
+      .post("http://localhost:8000/", data)
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   };
+
+  console.log(watch("example"));
+
   return (
     <div className="border rounded overflow-hidden px-md-5 py-md-4 p-3">
       <h5 className="font-weight-bold">My Address</h5>
@@ -29,62 +49,201 @@ function AccountDetails() {
         <h6 className="text-muted text-uppercase">billing address</h6>
         <hr />
       </div>
-      <Formik
+
+      <form onSubmit={handleSubmit(onSubmit)} className="needs-validation ">
+        <div className="mb-3">
+          {" "}
+          <label htmlFor="firstName" className="grey-text">
+            First name
+          </label>
+          <input
+            name="firstName"
+            type="text"
+            id="firstName"
+            className="form-control"
+            placeholder="First name"
+            required
+            ref={register}
+          />
+          <div className="valid-feedback">Looks good!</div>
+        </div>
+        <div className="mb-3">
+          {" "}
+          <label htmlFor="lastName" className="grey-text">
+            lastName
+          </label>
+          <input
+            name="lastName"
+            type="text"
+            id="lastName"
+            className="form-control"
+            placeholder="Last Name"
+            required
+            ref={register}
+          />
+          <div className="valid-feedback">Looks good!</div>
+        </div>
+        <div className="mb-3">
+          {" "}
+          <label htmlFor="email" className="grey-text">
+            email
+          </label>
+          <input
+            name="email"
+            type="email"
+            id="email"
+            className="form-control"
+            placeholder="email"
+            required
+            ref={register}
+          />
+          <div className="valid-feedback">Looks good!</div>
+        </div>
+        <div className="mb-3">
+          <label htmlFor="fileName">enter file</label>
+          <input
+            type="file"
+            name="fileName"
+            id="fileName"
+            ref={register}
+            className="form-control"
+          />
+        </div>
+        <button type="submit"> submit </button>
+      </form>
+
+      {/* <Formik
+        initialValues={{
+          firstName: "",
+          lastName: "",
+          email: "",
+        }}
         validationSchema={validationSchema}
-        initialValues={initialValues}
-        // onSubmit={async (values, { setSubmitting }) => {
-        //   const res = await fetch(`http://localhost:3000/`, {
-        //     method: "POST",
-
-        //     headers: {
-        //       "Content-Type": "application/json",
-        //       "Access-Control-Allow-Origin": "*",
-        //     },
-        //   }).then((response) => response.json());
-        //   console.log(res);
-        //   setSubmitting(false);
-        //   props.myCallbackFunction(res);
-        // }}
-
-        onSubmit={(values, actions) => {
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          setSubmitting(true);
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
-            const { firstName, lastName, email } = values;
-
             axios
-              .post(
-                `http://localhost:8000/`,
-                JSON.stringify({ firstName, lastName, email })
-              )
+              .post(`http://localhost:8000/`, JSON.stringify(values))
               .then((res) => {
                 console.log(res);
-                console.log(res.data);
+              });
+            resetForm();
+            setSubmitting(false);
+          }, 500);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+        }) => (
+          <form onSubmit={handleSubmit}>
+            {JSON.stringify(values)}
+            <div className="my-3">
+              <label htmlFor="firstName">enter first name</label>
+              <input
+                type="text"
+                name="firstName"
+                id="firstName"
+                placeholder="firstName"
+                value={values.firstName}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                className={
+                  touched.firstName && errors.firstName
+                    ? "has-error form-control"
+                    : "form-control"
+                }
+              />
+
+              <small>
+                {" "}
+                <Error
+                  touched={touched.firstName}
+                  message={errors.firstName}
+                />{" "}
+              </small>
+            </div>
+            <div className="my-3">
+              <label htmlFor="lastName">enter last name</label>
+              <input
+                type="text"
+                name="lastName"
+                id="lastName"
+                placeholder="lastName"
+                value={values.lastName}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                className={
+                  touched.lastName && errors.lastName
+                    ? "has-error form-control"
+                    : "form-control"
+                }
+              />
+              <small>
+                {" "}
+                <Error
+                  touched={touched.lastName}
+                  message={errors.lastName}
+                />{" "}
+              </small>
+            </div>
+            <div className="my-3">
+              <label htmlFor="email">enter first name</label>
+              <input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="email"
+                value={values.email}
+                onBlur={handleBlur}
+                onChange={handleChange}
+                className={
+                  touched.email && errors.email
+                    ? "has-error form-control"
+                    : "form-control"
+                }
+              />
+              <small>
+                {" "}
+                <Error touched={touched.email} message={errors.email} />{" "}
+              </small>
+            </div>
+
+            <div className="my-3">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn btn-primary"
+              >
+                submit
+              </button>
+            </div>
+          </form>
+        )}
+      </Formik> */}
+
+      {/* <Formik
+        validationSchema={validationSchema}
+        initialValues={initialValues}
+        onSubmit={(values, { setSubmitting, resetForm }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+
+            setSubmitting(true);
+            axios
+              .post(`https://jsonplaceholder.typicode.com/posts`, values)
+              .then((res) => {
+                console.log(res);
               });
             console.log(JSON.stringify(values));
-
-            // fetch(`http://localhost:8000/`, {
-            //   method: "POST",
-            //   headers: {
-            //     "Content-Type": "application/json",
-            //     // 'Content-Type': 'application/x-www-form-urlencoded',
-            //   },
-            //   body: JSON.stringify(values),
-            // })
-            //   .then((e) => console.log(e))
-            //   .catch((e) => console.log(e));
-
-            // actions.setSubmitting(true);
-
-            // let data = new FormData();
-            // data.append("file", values.file);
-            // return fetch("http://localhost:8000/", {
-            //   method: "POST",
-            //   headers: new Headers({ Accept: "application/json" }),
-            //   body: JSON.stringify(data),
-            // })
-            //   .then((res) => res.json())
-            //   .then((data) => console.log(data))
-            //   .catch((err) => console.log(err));
+            resetForm();
+            setSubmitting(false);
           }, 1000);
         }}
       >
@@ -170,7 +329,7 @@ function AccountDetails() {
                     htmlFor="file"
                     className="w-100  overflow-hidden rounded-pill border d-flex justify-content-end"
                   >
-                    <div className="w-75 px-2 py-1"> {fileName} </div>
+                    <div className="w-75 px-2 py-1"> fgwefwefwe </div>
                     <div className="p-1 w-25 d-flex  justify-content-center align-content-center align-items-center bg-primary">
                       <svg
                         width="26"
@@ -227,7 +386,7 @@ function AccountDetails() {
             </div>
           </Form>
         )}
-      </Formik>
+      </Formik> */}
     </div>
   );
 }

@@ -66,17 +66,17 @@ function WishListPage() {
   const [productCount, setProductCount] = useState(false);
 
   const hundleClick = (id, item) => {
-    if (item == 1) {
+    if (item === 1) {
       arry.forEach((element) => {
-        if (element.id == id) element.count = element.count + 1;
+        if (element.id === id) element.count = element.count + 1;
       });
       setProductCount(!productCount);
       console.log(arry);
       return;
     }
-    if (item == 0) {
+    if (item === 0) {
       arry.forEach((element) => {
-        if (element.id == id && element.count != 0)
+        if (element.id === id && element.count !== 0)
           element.count = element.count - 1;
       });
       setProductCount(!productCount);
@@ -117,7 +117,10 @@ function WishListPage() {
                         <div key={element.id} className="product-one-list">
                           <div>
                             <div>
-                              <img src="https://unimall.az/images/detailed/280/05db4b29-0b74-4e6b-acd4-fc504be73f83.jpg" />
+                              <img
+                                src="https://unimall.az/images/detailed/280/05db4b29-0b74-4e6b-acd4-fc504be73f83.jpg"
+                                alt="wfefewfwe"
+                              />
                             </div>
                             <h4>{element.name}</h4>
                             <p>

@@ -7,11 +7,15 @@ function ProductDetailLeftSlider() {
   let slider2;
 
   useEffect(() => {
-    const myNav = {
-      nav1: slider1,
-      nav2: slider2,
+    const someFunc = () => {
+      const myNav = {
+        nav1: slider1,
+        nav2: slider2,
+      };
+      setNav(myNav);
     };
-    setNav(myNav);
+
+    someFunc();
   }, []);
   return (
     <div className="product-detail-left-slider">
