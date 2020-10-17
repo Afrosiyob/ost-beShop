@@ -5,6 +5,7 @@ import "./MyAddress.scss";
 
 import * as Yup from "yup";
 import { MDBCol, MDBRow, MDBBtn } from "mdbreact";
+import Axios from "axios";
 
 const initialValues = {
   b_City: "",
@@ -45,6 +46,10 @@ function MyAddress() {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
             actions.setSubmitting(false);
+
+            Axios.post("http://localhost:3000/profile", values)
+              .then((res) => console.log(res))
+              .catch((err) => console.log(err));
           }, 1000);
         }}
       >

@@ -3,6 +3,7 @@ import { MDBBtn, MDBCol, MDBRow } from "mdbreact";
 import React from "react";
 import * as Yup from "yup";
 import axios from "axios";
+import { yupResolver } from "@hookform/resolvers/yup";
 
 import { useForm } from "react-hook-form";
 
@@ -13,11 +14,11 @@ import { useForm } from "react-hook-form";
 //   file: "",
 // };
 
-// const validationSchema = Yup.object().shape({
-//   firstName: Yup.string().required("Required!"),
-//   lastName: Yup.string().required("Required!"),
-//   email: Yup.string().email("Email is not valid !").required("Required!"),
-// });
+const validationSchema = Yup.object().shape({
+  firstName: Yup.string().required("Required!"),
+  lastName: Yup.string().required("Required!"),
+  email: Yup.string().email("Email is not valid !").required("Required!"),
+});
 
 // const Error = ({ touched, message }) => {
 //   if (!touched) {
@@ -30,7 +31,9 @@ import { useForm } from "react-hook-form";
 // };
 
 function AccountDetails() {
-  const { register, handleSubmit, watch, errors } = useForm();
+  const { register, handleSubmit, watch, errors } = useForm({
+    resolver: yupResolver(validationSchema),
+  });
   const onSubmit = async (data) => {
     console.log(data);
 
@@ -66,6 +69,7 @@ function AccountDetails() {
             ref={register}
           />
           <div className="valid-feedback">Looks good!</div>
+          <p>{errors.firstName?.message}</p>
         </div>
         <div className="mb-3">
           {" "}
@@ -82,6 +86,7 @@ function AccountDetails() {
             ref={register}
           />
           <div className="valid-feedback">Looks good!</div>
+          <p>{errors.lastName?.message}</p>
         </div>
         <div className="mb-3">
           {" "}
@@ -98,6 +103,7 @@ function AccountDetails() {
             ref={register}
           />
           <div className="valid-feedback">Looks good!</div>
+          <p>{errors.email?.message}</p>
         </div>
         <div className="mb-3">
           <label htmlFor="fileName">enter file</label>
@@ -108,6 +114,7 @@ function AccountDetails() {
             ref={register}
             className="form-control"
           />
+          <p>{errors.fileName?.message}</p>
         </div>
         <button type="submit"> submit </button>
       </form>
@@ -123,11 +130,9 @@ function AccountDetails() {
           setSubmitting(true);
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
-            axios
-              .post(`http://localhost:8000/`, JSON.stringify(values))
-              .then((res) => {
-                console.log(res);
-              });
+            axios.post(`http://localhost:3000/profile`, values).then((res) => {
+              console.log(res);
+            });
             resetForm();
             setSubmitting(false);
           }, 500);
@@ -234,14 +239,13 @@ function AccountDetails() {
         onSubmit={(values, { setSubmitting, resetForm }) => {
           setTimeout(() => {
             alert(JSON.stringify(values, null, 2));
-
+            let data = new FormData();
+            data.append("file", values.file);
             setSubmitting(true);
-            axios
-              .post(`https://jsonplaceholder.typicode.com/posts`, values)
-              .then((res) => {
-                console.log(res);
-              });
-            console.log(JSON.stringify(values));
+            axios.post(`http://localhost:3000/profile`, data).then((res) => {
+              console.log(res);
+            });
+
             resetForm();
             setSubmitting(false);
           }, 1000);
