@@ -1,4 +1,10 @@
 {
+  "login": [
+    {
+      "email": "afrosiyob.a97@gmail.com",
+      "password": "2230102"
+    }
+  ],
   "posts": [
     {
       "id": 1,
@@ -14,17 +20,7 @@
     }
   ],
   "profile": {
-    "b_City": "wedfwef",
-    "b_AddressOne": "fwefwef",
-    "b_AddressTwo": "fwefwefwe",
-    "b_Country": "fwefcwefwe",
-    "b_ZipCode": "wefwefwe",
-    "b_Phone": "fcwefwe",
-    "s_City": "fwefwe",
-    "s_AddressOne": "wefwefwef",
-    "s_AddressTwo": "fwefwefwe",
-    "s_Country": "fwefewfwef",
-    "s_ZipCode": "fcwefc",
-    "s_Phone": "wefwef"
+    "email": "afrosiyob.a97@gmail.com",
+    "password": "2230102"
   }
 }

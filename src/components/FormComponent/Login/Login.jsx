@@ -5,13 +5,23 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { MDBAnimation, MDBModal, MDBModalBody, MDBModalHeader } from "mdbreact";
 import ResetPass from "../ResetPass/ResetPass";
+import Axios from "axios";
 
 const initialValues = {
   email: "",
   password: "",
 };
-const onSubmit = (values) => {
+const onSubmit = async (values) => {
   console.log(values);
+
+  await Axios.post("http://localhost:3000/profile?q=", values)
+    .then((res) => {
+      console.log(res.status);
+      if (res.status === 201) {
+        alert("true");
+      }
+    })
+    .catch((err) => console.log(err));
 };
 const validationSchema = Yup.object().shape({
   email: Yup.string().email("Invalid email").required("Required"),
