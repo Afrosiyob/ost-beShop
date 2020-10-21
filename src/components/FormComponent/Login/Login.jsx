@@ -31,7 +31,7 @@ const validationSchema = Yup.object().shape({
     .required("Required"),
 });
 
-function Login() {
+function Login(props) {
   // const [bColor, setbColor] = useState("black");
 
   const [state, setstate] = useState({
@@ -241,11 +241,11 @@ function Login() {
                           y2="0.999969"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#4E5262" />
+                          <stop stopColor="#4E5262" />
                           <stop
                             offset="1"
-                            stop-color="#4E5262"
-                            stop-opacity="0"
+                            stopColor="#4E5262"
+                            stopOpacity="0"
                           />
                         </linearGradient>
                       </defs>
@@ -275,11 +275,11 @@ function Login() {
                           y2="1.00001"
                           gradientUnits="userSpaceOnUse"
                         >
-                          <stop stop-color="#4E5262" />
+                          <stop stopColor="#4E5262" />
                           <stop
                             offset="1"
-                            stop-color="#4E5262"
-                            stop-opacity="0"
+                            stopColor="#4E5262"
+                            stopOpacity="0"
                           />
                         </linearGradient>
                       </defs>

@@ -81,6 +81,10 @@
     height: 100vh !important;
 }
 
+.modal-header {
+    border: none !important;
+}
+
 .sign-box {
     transition: all 0.2s linear;
     margin: 0 5px;
@@ -91,8 +95,4 @@
         color: white;
         cursor: pointer;
     }
-}
-
-.modal-header {
-    border: none !important;
 }

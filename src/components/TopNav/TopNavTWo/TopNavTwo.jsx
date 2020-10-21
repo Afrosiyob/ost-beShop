@@ -1,12 +1,18 @@
 import { MDBContainer } from "mdbreact";
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import RightModal from "../../RightModal/RightModal";
 
 import SearchBox from "./SearchBox/SearchBox";
 
 import "./TopNavTwo.scss";
 
 function TopNavTwo() {
+  const [salom, setSalom] = useState(false);
+
+  const callHandle = () => {
+    setSalom(!salom);
+  };
   return (
     <div className="wrap-nav-two">
       <MDBContainer>
@@ -21,19 +27,32 @@ function TopNavTwo() {
           </div>
           <div className="right-nav">
             <div className="right-nav-icons user">
-              <svg
-                width="22"
-                height="22"
-                viewBox="0 0 22 22"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M20.4747 17.8797C19.9589 16.6579 19.2103 15.5481 18.2708 14.6121C17.3341 13.6734 16.2244 12.925 15.0032 12.4082C14.9923 12.4027 14.9813 12.4 14.9704 12.3945C16.6739 11.1641 17.7813 9.15977 17.7813 6.89844C17.7813 3.15234 14.7462 0.117188 11.0001 0.117188C7.25397 0.117188 4.21882 3.15234 4.21882 6.89844C4.21882 9.15977 5.32624 11.1641 7.02976 12.3973C7.01882 12.4027 7.00788 12.4055 6.99694 12.4109C5.77194 12.9277 4.67272 13.6688 3.72937 14.6148C2.79068 15.5516 2.04227 16.6612 1.52546 17.8824C1.01775 19.078 0.743925 20.3599 0.718818 21.6586C0.718089 21.6878 0.723207 21.7168 0.733873 21.744C0.744539 21.7712 0.760537 21.7959 0.780923 21.8168C0.801309 21.8377 0.825671 21.8543 0.852574 21.8657C0.879476 21.877 0.908376 21.8828 0.937568 21.8828H2.57819C2.69851 21.8828 2.79421 21.7871 2.79694 21.6695C2.85163 19.5586 3.69929 17.5816 5.19772 16.0832C6.74812 14.5328 8.8071 13.6797 11.0001 13.6797C13.193 13.6797 15.252 14.5328 16.8024 16.0832C18.3008 17.5816 19.1485 19.5586 19.2032 21.6695C19.2059 21.7898 19.3016 21.8828 19.4219 21.8828H21.0626C21.0918 21.8828 21.1207 21.877 21.1476 21.8657C21.1745 21.8543 21.1988 21.8377 21.2192 21.8168C21.2396 21.7959 21.2556 21.7712 21.2663 21.744C21.2769 21.7168 21.282 21.6878 21.2813 21.6586C21.254 20.3516 20.9833 19.0801 20.4747 17.8797ZM11.0001 11.6016C9.74499 11.6016 8.56374 11.1121 7.67507 10.2234C6.7864 9.33477 6.29694 8.15352 6.29694 6.89844C6.29694 5.64336 6.7864 4.46211 7.67507 3.57344C8.56374 2.68477 9.74499 2.19531 11.0001 2.19531C12.2551 2.19531 13.4364 2.68477 14.3251 3.57344C15.2137 4.46211 15.7032 5.64336 15.7032 6.89844C15.7032 8.15352 15.2137 9.33477 14.3251 10.2234C13.4364 11.1121 12.2551 11.6016 11.0001 11.6016Z"
-                  fill="#4E5262"
-                />
-              </svg>
+              <div className="d-flex">
+                <div className="mr-2">
+                  <span onClick={callHandle}>sing in</span>
+                  <div>
+                    <RightModal
+                      componentName="Login"
+                      nameBtn="Sign in"
+                      iconName="sign-in"
+                      isBoolen={salom}
+                    />{" "}
+                  </div>
+                </div>
+                <div className="mr-2">
+                  <span onClick={callHandle}>sing up</span>
+                  <div>
+                    <RightModal
+                      componentName="SignUp"
+                      nameBtn="Sign up"
+                      iconName="sign-out"
+                      isBoolen={salom}
+                    />{" "}
+                  </div>
+                </div>
+              </div>
             </div>
+
             <div className="right-nav-icons">
               <span className="counter">1</span>
               <svg
@@ -67,6 +86,7 @@ function TopNavTwo() {
                 />
               </svg>
             </div>
+
             <div className="summ">1257 364 UZS</div>
           </div>
         </div>
