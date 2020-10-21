@@ -1,5 +1,6 @@
 import { MDBAnimation, MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import React, { useState } from "react";
+import OtherPageNav from "../../components/TopNav/OtherPageNav/OtherPageNav";
 
 import CardPageLeft from "../../layouts/CardPage/CardPageLeft/CardPageLeft";
 import CardPageRight from "../../layouts/CardPage/CardPageRight/CardPageRight";
@@ -18,6 +19,7 @@ function CardPage() {
 
   return (
     <div>
+      <OtherPageNav />
       <MDBContainer>
         <MDBRow>
           <MDBCol md="8" sm="12">

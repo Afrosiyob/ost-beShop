@@ -1,5 +1,6 @@
 import { MDBAnimation, MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import React from "react";
+import OtherPageNav from "../../components/TopNav/OtherPageNav/OtherPageNav";
 import ProductDetailBottomSlider from "../../layouts/ProductDetail/ProductDetailBottomSlider/ProductDetailBottomSlider";
 import ProductDetailLeftSlider from "../../layouts/ProductDetail/ProductDetailLeftSlider/ProductDetailLeftSlider";
 import ProductDetailMidInfo from "../../layouts/ProductDetail/ProductDetailMidInfo/ProductDetailMidInfo";
@@ -11,6 +12,8 @@ import "./ProductDetail.scss";
 function ProductDetail() {
   return (
     <div className="product-detail">
+      <OtherPageNav />
+
       <MDBContainer>
         <MDBRow className="my-5">
           <MDBCol sm="12" md="4" className="mb-3">

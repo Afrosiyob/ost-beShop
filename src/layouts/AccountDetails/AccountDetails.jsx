@@ -119,6 +119,8 @@ function AccountDetails() {
         <button type="submit"> submit </button>
       </form>
 
+      <br />
+
       {/* <Formik
         initialValues={{
           firstName: "",

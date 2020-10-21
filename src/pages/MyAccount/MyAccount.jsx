@@ -1,5 +1,6 @@
 import { MDBCol, MDBContainer, MDBRow } from "mdbreact";
 import React, { useState } from "react";
+import OtherPageNav from "../../components/TopNav/OtherPageNav/OtherPageNav";
 import AccountDetails from "../../layouts/AccountDetails/AccountDetails";
 import Dashboard from "../../layouts/Dashboard/Dashboard";
 import MyAddress from "../../layouts/MyAddress/MyAddress";
@@ -12,6 +13,7 @@ function MyAccount() {
 
   return (
     <div className="my-acc-page">
+      <OtherPageNav />
       <MDBContainer>
         <div className="my-5 w-100 pt-5">
           <h1 className="w-100 text-center font-weight-bold">My Account</h1>

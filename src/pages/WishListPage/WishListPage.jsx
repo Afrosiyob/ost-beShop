@@ -1,5 +1,6 @@
 import { MDBAnimation, MDBCol, MDBContainer } from "mdbreact";
 import React, { useState } from "react";
+import OtherPageNav from "../../components/TopNav/OtherPageNav/OtherPageNav";
 
 import "./WishListPage.scss";
 
@@ -87,6 +88,7 @@ function WishListPage() {
   };
   return (
     <div>
+      <OtherPageNav />
       <MDBAnimation type="fadeInUp">
         <MDBContainer>
           <div className="my-5 w-100 pt-5">

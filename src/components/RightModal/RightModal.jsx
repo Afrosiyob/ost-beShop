@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./RightModal.scss";
 
 import { MDBTooltip, MDBModal, MDBModalBody, MDBModalHeader } from "mdbreact";
@@ -12,6 +12,10 @@ function RightModal(props) {
   const toggle = () => {
     setmodal(!modal);
   };
+
+  useEffect(() => {
+    setmodal(props.isBoolen);
+  });
 
   const renderSwitch = (componentName) => {
     switch (componentName) {

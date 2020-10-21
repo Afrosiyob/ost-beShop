@@ -6,6 +6,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 // import { MDBAnimation } from "mdbreact";
 import * as Yup from "yup";
 import { Link } from "react-router-dom";
+import OtherPageNav from "../../components/TopNav/OtherPageNav/OtherPageNav";
 
 const initialValues = {
   firstName: "",
@@ -56,6 +57,7 @@ const validationSchema = Yup.object().shape({
 function CheckOutPage() {
   return (
     <div className="check-out-page">
+      <OtherPageNav />
       <MDBContainer>
         <div className="my-5 w-100 pt-5">
           <h1 className="w-100 text-center font-weight-bold">
